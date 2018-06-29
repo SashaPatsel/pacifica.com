@@ -1,0 +1,105 @@
+/* dark blue: #001F54
+   medium blue: #034078
+   light blue: #1282A2
+*/
+
+/* Reset CSS for cross-browser compatibility */
+* {
+  margin: 0;
+  padding: 0;
+  /* makes it so that padding and width don't add to total size of element */
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #777;
+  /* padding: 0 30px 0 30px; */
+}
+
+.header {
+  height: 95vh;
+  background-image: linear-gradient(
+    to right bottom,
+  rgba(18, 131, 162, 0.705), 
+  rgba(0, 31, 84, 0.705)),
+  url(../images/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  clip-path: polygon(0 0, 100% 0, 100% 70vh, 0 100%);
+  position: relative
+}
+
+.logo-box {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  background-color: white;
+  height: 50px;
+}
+
+.logo {
+  height: 50px;
+}
+
+.text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.heading-primary {
+  color: white;
+  text-transform: uppercase;
+/* hides parent element during animation. Fixes bug in animation jitter */
+  backface-visibility: hidden;
+}
+.heading-primary-main {
+  display: block;
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: 31px;
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+}
+
+.heading-primary-sub {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 22px;
+    animation: moveInRight 1s ease-out;
+}
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px)
+  }
+  80% {
+    transform: translateX(10px)
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0)
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px)
+  }
+  80% {
+    transform: translateX(-10px)
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0)
+  }
+}
