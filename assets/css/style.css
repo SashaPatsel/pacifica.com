@@ -4,20 +4,27 @@
 */
 
 /* Reset CSS for cross-browser compatibility */
-* {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
-  /* makes it so that padding and width don't add to total size of element */
-  box-sizing: border-box;
+  /* allows other elements to inherit box-sizing specified in body */
+  box-sizing: inherit;
+}
+
+html {
+  /* this makes it a lot easier to calcute rem. 62.5 is 10/16 so our defualt fontsize is relative to user settings */
+  font-size: 62.5%;
 }
 
 body {
   font-family: "Lato", sans-serif;
   font-weight: 400px;
-  font-size: 16px;
   line-height: 1.7;
   color: #777;
-  /* padding: 0 30px 0 30px; */
+    /* makes it so that padding and width don't add to total size of element. i.e. height and width will now extend to define other parts of the box model */
+    box-sizing: border-box;
 }
 
 .header {
@@ -33,23 +40,39 @@ body {
   position: relative
 }
 
-.logo-box {
+.header__logo-box {
+  position: relative;
+  top: 4rem;
+  left: 4rem;
+  height: 7rem;
+  width: 7rem;
+  border-radius: 100%;
+  background: #2d50a3;
+  display: inline-block;
+}
+
+.header__logo {
+  height: 5rem;
   position: absolute;
-  top: 40px;
-  left: 40px;
-  background-color: white;
-  height: 50px;
+  top: 1rem;
+  left: 1.4rem;
+  z-index: 2;
 }
-
-.logo {
-  height: 50px;
+.logo-wrap {
+  height: 4.7rem;
+  width: 3.9rem;
+  background: white;
+  position: absolute;
+  z-index: 0;
+  top: 1rem;
+  left: 1.5rem;
 }
-
-.text-box {
+.header__text-box {
   position: absolute;
   top: 40%;
   left: 50%;
   transform: translate(-50%,-50%);
+  text-align: center;
 }
 
 .heading-primary {
@@ -57,22 +80,23 @@ body {
   text-transform: uppercase;
 /* hides parent element during animation. Fixes bug in animation jitter */
   backface-visibility: hidden;
+  margin-bottom: 60px; 
 }
-.heading-primary-main {
+.heading-primary--main {
   display: block;
-  font-size: 60px;
+  font-size: 6rem;
   font-weight: 400;
-  letter-spacing: 31px;
+  letter-spacing: 3.1rem;
   animation-name: moveInLeft;
   animation-duration: 1s;
   animation-timing-function: ease-out;
 }
 
-.heading-primary-sub {
+.heading-primary--sub {
     display: block;
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: 700;
-    letter-spacing: 22px;
+    letter-spacing: 2.2rem;
     animation: moveInRight 1s ease-out;
 }
 
@@ -93,13 +117,81 @@ body {
 @keyframes moveInRight {
   0% {
     opacity: 0;
-    transform: translateX(100px)
+    transform: translateX(10rem)
   }
   80% {
-    transform: translateX(-10px)
+    transform: translateX(-1rem)
   }
   100% {
     opacity: 1;
     transform: translate(0)
   }
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem)
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0)
+  }
+}
+
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  display: inline-block;
+  border-radius: 10rem;
+  transition: all .2s; 
+  position: relative;
+  font-size: 1.5rem;
+}
+
+.btn:hover {
+  transform: translateY(-.3rem);
+  /* x-axis, y-axis, blur */
+  box-shadow: 0 1rem 1.5rem rgba(0,0,0,.2);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 .5rem .7rem rgba(0,0,0,.2);
+}
+
+.btn--white {
+  background-color: #fff;
+  color: #777;
+}
+
+.btn::after{
+  /* must always specify content for pseudo elements */
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all .4s;
+}
+
+.btn--white::after {
+  background-color: white;
+}
+
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0; 
+}
+
+.btn--animated {
+  animation: moveInBottom .5s ease-out .75;
+  /* automatically apply styles of 0% before anim starts */
+  animation-fill-mode: backwards;
 }
