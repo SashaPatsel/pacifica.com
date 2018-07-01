@@ -1,7 +1,30 @@
-/* dark blue: #001F54
-   medium blue: #034078
-   light blue: #1282A2
-*/
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px); }
+  80% {
+    transform: translateX(10px); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem); }
+  80% {
+    transform: translateX(-1rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
 
 /* Reset CSS for cross-browser compatibility */
 *,
@@ -10,164 +33,70 @@
   margin: 0;
   padding: 0;
   /* allows other elements to inherit box-sizing specified in body */
-  box-sizing: inherit;
-}
+  box-sizing: inherit; }
 
 html {
   /* this makes it a lot easier to calcute rem. 62.5 is 10/16 so our defualt fontsize is relative to user settings */
-  font-size: 62.5%;
-}
+  font-size: 62.5%; }
+
+body {
+  /* makes it so that padding and width don't add to total size of element. i.e. height and width will now extend to define other parts of the box model */
+  box-sizing: border-box; }
 
 body {
   font-family: "Lato", sans-serif;
   font-weight: 400px;
   line-height: 1.7;
-  color: #777;
-    /* makes it so that padding and width don't add to total size of element. i.e. height and width will now extend to define other parts of the box model */
-    box-sizing: border-box;
-}
-
-.header {
-  height: 95vh;
-  background-image: linear-gradient(
-    to right bottom,
-  rgba(18, 131, 162, 0.705), 
-  rgba(0, 31, 84, 0.705)),
-  url(../images/hero.jpg);
-  background-size: cover;
-  background-position: top;
-  clip-path: polygon(0 0, 100% 0, 100% 70vh, 0 100%);
-  position: relative
-}
-
-.header__logo-box {
-  position: relative;
-  top: 4rem;
-  left: 4rem;
-  height: 7rem;
-  width: 7rem;
-  border-radius: 100%;
-  background: #2d50a3;
-  display: inline-block;
-}
-
-.header__logo {
-  height: 5rem;
-  position: absolute;
-  top: 1rem;
-  left: 1.4rem;
-  z-index: 2;
-}
-.logo-wrap {
-  height: 4.7rem;
-  width: 3.9rem;
-  background: white;
-  position: absolute;
-  z-index: 0;
-  top: 1rem;
-  left: 1.5rem;
-}
-.header__text-box {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  text-align: center;
-}
+  color: #777; }
 
 .heading-primary {
   color: white;
   text-transform: uppercase;
-/* hides parent element during animation. Fixes bug in animation jitter */
+  /* hides parent element during animation. Fixes bug in animation jitter */
   backface-visibility: hidden;
-  margin-bottom: 60px; 
-}
-.heading-primary--main {
-  display: block;
-  font-size: 6rem;
-  font-weight: 400;
-  letter-spacing: 3.1rem;
-  animation-name: moveInLeft;
-  animation-duration: 1s;
-  animation-timing-function: ease-out;
-}
-
-.heading-primary--sub {
+  margin-bottom: 60px; }
+  .heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.1rem;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out; }
+  .heading-primary--sub {
     display: block;
     font-size: 2rem;
     font-weight: 700;
     letter-spacing: 2.2rem;
-    animation: moveInRight 1s ease-out;
-}
+    animation: moveInRight 1s ease-out; }
 
-@keyframes moveInLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(-100px)
-  }
-  80% {
-    transform: translateX(10px)
-  }
-  100% {
-    opacity: 1;
-    transform: translate(0)
-  }
-}
-
-@keyframes moveInRight {
-  0% {
-    opacity: 0;
-    transform: translateX(10rem)
-  }
-  80% {
-    transform: translateX(-1rem)
-  }
-  100% {
-    opacity: 1;
-    transform: translate(0)
-  }
-}
-
-@keyframes moveInBottom {
-  0% {
-    opacity: 0;
-    transform: translateY(3rem)
-  }
-  100% {
-    opacity: 1;
-    transform: translate(0)
-  }
-}
-
-.btn:link,
-.btn:visited {
+.btn:link, .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
   padding: 1.5rem 4rem;
   display: inline-block;
   border-radius: 10rem;
-  transition: all .2s; 
+  transition: all .2s;
   position: relative;
-  font-size: 1.5rem;
-}
+  font-size: 1.5rem; }
 
 .btn:hover {
-  transform: translateY(-.3rem);
+  transform: translateY(-0.3rem);
   /* x-axis, y-axis, blur */
-  box-shadow: 0 1rem 1.5rem rgba(0,0,0,.2);
-}
+  box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.2); }
+  .btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0; }
 
 .btn:active {
   transform: translateY(-1px);
-  box-shadow: 0 .5rem .7rem rgba(0,0,0,.2);
-}
+  box-shadow: 0 0.5rem 0.7rem rgba(0, 0, 0, 0.2); }
 
 .btn--white {
   background-color: #fff;
-  color: #777;
-}
+  color: #777; }
 
-.btn::after{
+.btn::after {
   /* must always specify content for pseudo elements */
   content: "";
   display: inline-block;
@@ -178,20 +107,77 @@ body {
   top: 0;
   left: 0;
   z-index: -1;
-  transition: all .4s;
-}
+  transition: all .4s; }
 
 .btn--white::after {
-  background-color: white;
-}
-
-.btn:hover::after {
-  transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0; 
-}
+  background-color: white; }
 
 .btn--animated {
   animation: moveInBottom .5s ease-out .75;
   /* automatically apply styles of 0% before anim starts */
-  animation-fill-mode: backwards;
-}
+  animation-fill-mode: backwards; }
+
+.header {
+  height: 95vh;
+  background-image: linear-gradient(to right bottom, rgba(18, 130, 162, 0.705), rgba(0, 31, 84, 0.705)), url(../images/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  clip-path: polygon(0 0, 100% 0, 100% 70vh, 0 100%);
+  position: relative; }
+  .header__logo-box {
+    position: relative;
+    top: 4rem;
+    left: 4rem;
+    height: 7rem;
+    width: 7rem;
+    border-radius: 100%;
+    background: #2d50a3;
+    display: inline-block; }
+  .header__logo {
+    height: 5rem;
+    position: absolute;
+    top: 1rem;
+    left: 1.4rem;
+    z-index: 2; }
+  .header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; }
+  .header__logo-wrap {
+    height: 4.7rem;
+    width: 3.9rem;
+    background: white;
+    position: absolute;
+    z-index: 0;
+    top: 1rem;
+    left: 1.5rem; }
+
+.row {
+  max-width: 114rem;
+  background-color: aqua;
+  margin: 0 auto; }
+  .row:not(:last-child) {
+    margin-bottom: 8rem; }
+  .row::after {
+    content: "";
+    display: table;
+    clear: both; }
+  .row [class^="col-"] {
+    background-color: orangered;
+    float: left; }
+    .row [class^="col-"]:not(:last-child) {
+      margin-right: 6rem; }
+  .row .col-1-of-2 {
+    width: calc((100% - 6rem) / 2); }
+  .row .col-1-of-3 {
+    width: calc((100% - 2 * 6rem) / 3); }
+  .row .col-2-of-3 {
+    width: calc( 2 * ((100% - 2 * 6rem) / 3) + 6rem); }
+  .row .col-1-of-4 {
+    width: calc((100% - 3 * 6rem) / 4); }
+  .row .col-2-of-4 {
+    width: calc(2 * ((100% - 3 * 6rem) / 4) + 6rem); }
+  .row .col-3-of-4 {
+    width: calc(3 * ((100% - 3 * 6rem) / 4) + 2 * 6rem); }

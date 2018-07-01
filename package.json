@@ -1,0 +1,13 @@
+{
+  "name": "advanced-css",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/SashaPatsel/advanced-css.git",
+  "license": "MIT",
+  "scripts": {
+    "compile:sass": "node-sass assets/sass/main.scss assets/css/style.css -w"
+  },
+  "dependencies": {
+    "node-sass": "^4.9.0"
+  }
+}
