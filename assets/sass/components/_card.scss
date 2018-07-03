@@ -49,4 +49,51 @@
         transform: rotateY(0);
     }
 
+    //FRONT SIDE STYLING
+    &__picture {
+      background-size: cover;
+      height: 23rem;
+      background-blend-mode: screen;
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+      //This one is f***in' awesome but doesn't quite fit here;
+      // background-blend-mode: color-burn;
+
+      &--1 {
+        //image located relative to style.css (that's where the code's being compiled)
+        background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark), url(../images/nat-5.jpg);
+      }
+
+      &--2 {
+        background-image: linear-gradient(to right bottom, $color-four-light, $color-four-dark), url(../images/nat-6.jpg);
+      }
+
+      &--3 {
+        background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark), url(../images/nat-7.jpg);
+      }
+
+    }
+
+    &__heading {
+      font-size: 2.8rem;
+      font-weight: 300;
+      text-transform: uppercase;
+      color: white;
+      text-align: right;
+      position: absolute;
+      top: 12rem;
+      right: 2rem;
+    }
+
+    &__heading-span {
+      padding: 1rem 1.5rem;
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+      &--1 {
+        background-image: linear-gradient(to right bottom,  rgba($color-secondary-light, .85), 
+          rgba($color-secondary-dark, .85));
+      }
+
+    }
+
 }
