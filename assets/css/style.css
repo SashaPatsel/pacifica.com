@@ -47,7 +47,7 @@ body {
   font-family: "Lato", sans-serif;
   font-weight: 400px;
   line-height: 1.7;
-  color: #9b9b9b; }
+  color: #878787; }
 
 .heading-primary {
   color: white;
@@ -130,7 +130,7 @@ body {
 
 .btn--white {
   background-color: #fff;
-  color: #9b9b9b; }
+  color: #878787; }
 
 .btn::after {
   /* must always specify content for pseudo elements */
@@ -152,6 +152,71 @@ body {
   animation: moveInBottom .5s ease-out .75;
   /* automatically apply styles of 0% before anim starts */
   animation-fill-mode: backwards; }
+
+.btn-text:link, .btn-text:visited {
+  font-size: 1.6rem;
+  color: #055197;
+  display: inline-block;
+  text-decoration: none;
+  border-bottom: 1px solid #055197;
+  padding: 3px; }
+
+.btn-text--anim-trig:hover .btn-text {
+  background-color: #055197;
+  color: white;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.27);
+  transform: translateY(-2px); }
+
+.btn-text:active {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.27);
+  transform: translateY(-2px); }
+
+.composition {
+  position: relative; }
+  .composition__photo {
+    width: 55%;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4);
+    border-radius: 2px;
+    position: absolute;
+    z-index: 10;
+    transition: all .2s;
+    outline-offset: 2rem; }
+    .composition__photo--p1 {
+      left: 0;
+      top: -2rem; }
+    .composition__photo--p2 {
+      right: 0;
+      top: 2rem; }
+    .composition__photo--p3 {
+      left: 20%;
+      top: 10rem; }
+    .composition__photo:hover {
+      outline: 1.5rem solid #055197;
+      transform: scale(1.05);
+      box-shadow: 0 2.5rem 4rem rgba(0, 0, 0, 0.5);
+      z-index: 20; }
+  .composition:hover .composition__photo:not(:hover) {
+    transform: scale(0.9); }
+
+.feature-box {
+  background-color: rgba(255, 255, 255, 0.8);
+  font-size: 1.5rem;
+  padding: 2.5rem;
+  border-radius: 3px;
+  box-shadow: 0 1.5rem 4rem #000000, 0.15;
+  transition: transform .3s; }
+  .feature-box__icon {
+    font-size: 6rem;
+    margin-bottom: .5rem;
+    display: inline-block;
+    background-image: linear-gradient(to right, #1282A2, #001F54);
+    -webkit-background-clip: text;
+    color: transparent;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%); }
+  .feature-box:hover {
+    transform: translateY(-1.5rem) scale(1.03); }
 
 .header {
   height: 95vh;
@@ -220,3 +285,11 @@ body {
   background-color: #f7f7f7;
   padding: 25rem 0;
   margin-top: -25vh; }
+
+.section-features {
+  padding: 20rem 0;
+  background-image: linear-gradient(to right bottom, rgba(18, 130, 162, 0.705), rgba(0, 31, 84, 0.705)), url(../images/nat-4.jpg);
+  background-size: cover;
+  transform: skewY(-7deg); }
+  .section-features > * {
+    transform: skewY(7deg); }

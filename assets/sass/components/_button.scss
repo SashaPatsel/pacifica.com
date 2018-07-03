@@ -1,3 +1,5 @@
+
+
 .btn {
 
   &:link,
@@ -56,5 +58,29 @@
     animation: moveInBottom .5s ease-out .75;
     /* automatically apply styles of 0% before anim starts */
     animation-fill-mode: backwards;
+  }
+}
+
+.btn-text {
+  &:link,
+  &:visited {
+    font-size: $default-font-size;
+    color: $color-primary;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 1px solid $color-primary;
+    padding: 3px;
+  }
+
+  &--anim-trig:hover .btn-text {
+    background-color: $color-primary;
+    color: white;
+    box-shadow: 0 1rem 2rem rgba(0,0,0,.27);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.27);
+    transform: translateY(-2px);
   }
 }
