@@ -32,6 +32,19 @@
   &--white {
     background-color: #fff;
     color: $color-grey-dark;
+
+    &::after {
+      background-color: $color-white;
+    }
+  }
+
+  &--blue {
+    background-color: $color-primary;
+    color: $color-grey-light-1;
+
+    &::after {
+      background-color: $color-primary;
+    }
   }
   
   &::after{
