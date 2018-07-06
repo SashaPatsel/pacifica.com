@@ -567,7 +567,7 @@ body {
 
 .header {
   height: 95vh;
-  background-image: linear-gradient(to right bottom, rgba(18, 130, 162, 0.705), rgba(13, 58, 136, 0.705)), url(../images/hero.jpg);
+  background-image: linear-gradient(to right bottom, rgba(18, 130, 162, 0.705), rgba(13, 58, 136, 0.705)), url(../images/hero1.jpeg);
   background-size: cover;
   background-position: top;
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 70vh, 0 100%);
@@ -675,7 +675,7 @@ body {
   height: 7rem;
   width: 7rem;
   position: fixed;
-  top: 6rem;
+  top: 3.5rem;
   right: 6rem;
   border-radius: 50%;
   z-index: 100;
@@ -688,7 +688,7 @@ body {
   width: 6rem;
   border-radius: 50%;
   position: fixed;
-  top: 6.5rem;
+  top: 3.5rem;
   right: 6.5rem;
   background-image: radial-gradient(#1282A2, #0d3a88);
   z-index: 80;
