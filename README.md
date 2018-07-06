@@ -1,6 +1,6 @@
 # Pacifica.com
 
-Click [here](https://sashapatsel.github.io/webpage-template-1/) to see the template!
+Click [here](https://sashapatsel.github.io/pacifica.com/) to see the template!
 
 <img src="assets/images/main-tease.png"/>     
 
@@ -8,7 +8,7 @@ This is a modern looking, single-page website showing off some of the coolest fe
 
 The general theme for this page is a website for Pacifica, CA. You'll notice though, that some of my warriors fandom found it's way onto the page 🤫. 
 
-This template is packed with cool effects and awesome, reusable components. Check out the demo video below, or test it out for yourself [here](https://sashapatsel.github.io/webpage-template-1/).
+This template is packed with cool effects and awesome, reusable components. Check out the demo video below, or test it out for yourself [here](https://sashapatsel.github.io/pacifica.com/).
 
 
 ## Demo
