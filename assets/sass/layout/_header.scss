@@ -10,6 +10,16 @@
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 70vh, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 70vh, 0 100%);
   position: relative;
+
+  @include responsive(t-port) {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
+  }
+
+  @include responsive(phone) {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+  }
   
   &__logo-box {
       position: relative;
@@ -29,14 +39,6 @@
       left: 1.4rem;
       z-index: 2;
     }
-    
-    &__text-box {
-      position: absolute;
-      top: 40%;
-      left: 50%;
-      transform: translate(-50%,-50%);
-      text-align: center;
-    }
 
     &__logo-wrap {
       height: 4.7rem;
@@ -46,6 +48,14 @@
       z-index: 0;
       top: 1rem;
       left: 1.5rem;
+    }
+    
+    &__text-box {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      text-align: center;
     }
 
 }

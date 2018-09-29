@@ -3,11 +3,15 @@
   padding: 5rem 0;
   font-size: 1.4rem;
 
+  @include responsive(t-port) {
+    padding: 3rem 0;
+  }
+
   &__logo-box {
     text-align: center;
     margin-bottom: 8rem;
 
-    //      
+       
     position: relative;
     top: 50%;
     left: 50%;
@@ -16,7 +20,11 @@
     width: 20rem;
     border-radius: 100%;
     background: #2d50a3;
-    //
+
+    @include responsive(t-port) {
+      margin-bottom: 6rem;
+    }
+    
   }
 
   &__logo {
@@ -42,6 +50,11 @@
     border-top: 1px solid $color-grey-light-2;
     padding-top: 2rem;
     display: inline-block;
+
+    @include responsive(t-port) {
+      width: 100%;
+      text-align: center;
+    }
   }
 
   &__list {
@@ -95,5 +108,10 @@
     padding-top: 2rem;
     width: 80%;
     float: right;
+
+    @include responsive(t-port) {
+      width: 200%;
+      float: none;
+    }
   }
 }
