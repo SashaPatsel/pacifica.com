@@ -24,6 +24,10 @@
     transform: skewY(7deg);
   }
 
+  @include responsive(t-port) {
+    padding: 10rem 0;
+  }
+
 }
 
 .section-tours {
